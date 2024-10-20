@@ -15,10 +15,9 @@ const UpdateBox = ({
   setShowUpdateBox,
 }) => {
 
-  // Function to handle numeric inputs, preventing invalid entries (e.g., letters)
   const handleNumberInput = (value, setter) => {
-    const numericValue = value.replace(/[^0-9]/g, '');  // Remove non-numeric characters
-    setter(numericValue);  // Set the state with numeric value
+    const numericValue = value.replace(/[^0-9]/g, '');  
+    setter(numericValue); 
   };
 
   return (

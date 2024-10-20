@@ -2,11 +2,11 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { FaChartBar, FaMedal, FaFileAlt } from "react-icons/fa"; // Importing icons
-import Page1 from "./page1"; // Importing Page1 component
-import Page2 from "./page2"; // Importing Page2 component
-import Page3 from "./page3"; // Importing Page3 component
-import { MdPerson } from "react-icons/md"; // Import the human icon
+import { FaChartBar, FaMedal, FaFileAlt } from "react-icons/fa"; 
+import Page1 from "./pageItems/page1"; 
+import Page2 from "./pageItems/page2"; 
+import Page3 from "./pageItems/page3";
+import { MdPerson } from "react-icons/md"; 
 
 export default function HomePage() {
   const [activePage, setActivePage] = useState("page2");
@@ -14,13 +14,13 @@ export default function HomePage() {
   const renderContent = () => {
     switch (activePage) {
       case "page1":
-        return <Page1 />; // Page1 content will be displayed (Dashboard)
+        return <Page1 />; 
       case "page2":
-        return <Page2 />; // Page2 content will be displayed (Skill Test)
+        return <Page2 />;
       case "page3":
-        return <Page3 />; // Page3 content will be displayed (Internship)
+        return <Page3 />; 
       default:
-        return <HomeContent />; // Default Home content
+        return <HomeContent />; 
     }
   };
 
@@ -44,16 +44,22 @@ export default function HomePage() {
     </div>
         </div>
 
-        <div className="flex h-screen overflow-hidden border-solid   border-t-1 border-r-0 border-b-0 border-l-0  border-gray-100   ">
+        {/* <div className="flex h-screen overflow-hidden border-solid   border-t-1 border-r-0 border-b-0 border-l-0  border-gray-100   "> */}
+        <div className="sm:flex sm:h-screen sm:overflow-hidden sm:border-solid   sm:border-t-1 sm:border-r-0 sm:border-b-0 sm:border-l-0  border-gray-100   ">
           {/* Left Navbar */}
-          <nav className="w-64 bg-white p-6 shadow-md border border-black">
-            <ul className="list-none p-0 space-y-4">
+          {/* <nav className="w-64   bg-white p-6 shadow-md border border-black  "> */}
+          <nav className="lg:w-64   bg-white p-6 shadow-md border border-black lg:p-0 p-6  ">
+          {/* <nav className="   w-25 sm:w-64 bg-white sm:p-6 shadow-md border border-black"> */}
+          {/* <ul className=" flex sm:block  sm:list-none sm:p-0 sm:space-y-4"> */}
+          {/* <ul className=" flex sm:block  sm:list-none sm:p-0 sm:space-y-4"> */}
+          <ul className="flex flex-col sm:flex-row sm:block list-none sm:p-0 sm:space-y-4  ">
+          {/* <ul > */}
               <li>
                 <button
                   onClick={() => setActivePage("page1")}
                   className={`flex items-center gap-3 w-full py-3 px-4  border-none transition-all duration-300 ${
                     activePage === "page1"
-                      ? "bg-blue-100 text-blue-600"
+                      ? "bg-blue-100 text-blue-600 border "
                       : "text-gray-600 bg-white"
                   }`}
                 >

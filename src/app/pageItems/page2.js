@@ -5,11 +5,11 @@ import { FaTrophy, FaCheckSquare } from "react-icons/fa";
 import { GiNotebook } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { updateStatistics } from "./lib/statisticsSlice";
-import LineChart from "./LineChart";
-import ProgressBarChart from "./ProgressBarChart";
-import QuestionAnalysisChart from "./QuestionAnalysisChart";
-import UpdateBox from "./UpdateBox"; // Import UpdateBox
+import { updateStatistics } from "../lib/statisticsSlice";
+import LineChart from "../charts/LineChart";
+import ProgressBarChart from "../charts/ProgressBarChart";
+import QuestionAnalysisChart from "../charts/QuestionAnalysisChart";
+import UpdateBox from "../UpdateBox"; // Import UpdateBox
 
 export default function Page2() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ export default function Page2() {
 
   return (
     <>
-      <div className="flex flex-row w-full h-full justify-around ">
+      <div className="sm:flex sm:flex-row sm:w-full sm:h-full sm:justify-around  flex flex-col">
         <div className="flex flex-col gap-10 p-5 border border-black flex-1">
           <span className="font-bold">Skill Test</span>
 
@@ -57,10 +57,12 @@ export default function Page2() {
             </div>
           </div>
 
-          <div className="border  p-4 border-solid border-gray-200 rounded-lg ">
+          {/* <div className="border  p-4 border-solid border-gray-200 rounded-lg "> */}
+          {/* <div className="sm:border  sm:p-4 border-solid border-gray-200 rounded-lg  "> */}
+          <div className="lg:border  lg:p-4 border-solid border-gray-200 rounded-lg  p-5  ">
             <span className="font-bold">Quick Statistics</span>
-            <div className="flex border border-black justify-between">
-              <div className="flex-1 items-center flex border-r border-red-500 gap-4 p-4">
+            <div className="lg:flex lg:flex-row border border-black lg:justify-between flex-col lg:gap-0 " >
+              <div className="flex-1 items-center flex border-r border-red-500 lg:gap-4 lg:p-4 lg:mt-0 mt-2 lg:gap-0 gap-3">
                 <div>
                   <FaTrophy className="text-yellow-500" size={25} />
                 </div>
@@ -70,7 +72,7 @@ export default function Page2() {
                 </div>
               </div>
 
-              <div className="flex-1 items-center flex border-r border-red-500 gap-6 p-4">
+              <div className="flex-1 items-center flex border-r border-red-500 lg:gap-6 lg:p-4 lg:mt-0 mt-2 lg:gap-0 gap-3">
                 <div>
                   <GiNotebook size={25} />
                 </div>
@@ -80,7 +82,7 @@ export default function Page2() {
                 </div>
               </div>
 
-              <div className="flex-1 items-center flex border-r border-red-500 gap-4 p-4">
+              <div className="flex-1 items-center flex border-r border-red-500 lg:gap-4 lg:p-4 lg:mt-0 mt-2 lg:gap-0 gap-3">
                 <div>
                   <FaCheckSquare className="text-green-500" size={25} />
                 </div>

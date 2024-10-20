@@ -1,5 +1,4 @@
-// src/app/ReduxProvider.js
-'use client'; // Mark this file as a Client Component
+'use client';
 
 import { Provider } from 'react-redux';
 import { store } from './lib/store';

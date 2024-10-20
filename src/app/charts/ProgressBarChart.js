@@ -14,7 +14,6 @@ const ProgressBarChart = () => {
     <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
       {progressData.map((item, index) => (
         <div key={index}>
-          {/* Apply the text color to both label and percentage */}
           <span className={`flex-1 text-sm `}>{item.label}</span>
           <div className='flex items-center gap-24'>
             <div className="w-1/2 h-2 bg-gray-300 rounded overflow-hidden">

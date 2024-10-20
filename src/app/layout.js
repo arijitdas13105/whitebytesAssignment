@@ -1,4 +1,3 @@
-// src/app/layout.js
 import './globals.css';
 import ReduxProvider from './ReduxProvider';
 
@@ -14,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
       <ReduxProvider>
-          {children} {/* This will render whatever is inside page.js */}
+          {children} 
 </ReduxProvider>
       </body>
     </html>
