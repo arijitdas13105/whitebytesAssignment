@@ -39,7 +39,7 @@ export default function Page2() {
         <div className="flex flex-col gap-10 p-5 border border-black flex-1">
           <span className="font-bold">Skill Test</span>
 
-          <div className="border border-sky-400 flex items-center justify-between p-4 border-solid border-gray-200 rounded-lg">
+          <div className="border  flex items-center justify-between p-4 border-solid border-gray-200 rounded-lg">
             <div>
               <Image src="/assets/htmlimg.png" width={35} height={35} />
             </div>
@@ -57,7 +57,7 @@ export default function Page2() {
             </div>
           </div>
 
-          <div className="border border-red-400 p-4 border-solid border-gray-200 rounded-lg ">
+          <div className="border  p-4 border-solid border-gray-200 rounded-lg ">
             <span className="font-bold">Quick Statistics</span>
             <div className="flex border border-black justify-between">
               <div className="flex-1 items-center flex border-r border-red-500 gap-4 p-4">
