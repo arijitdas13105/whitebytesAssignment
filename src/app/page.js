@@ -1,101 +1,128 @@
+
+"use client";
 import Image from "next/image";
+import { useState } from "react";
+import { FaChartBar, FaMedal, FaFileAlt } from "react-icons/fa"; // Importing icons
+import Page1 from "./page1"; // Importing Page1 component
+import Page2 from "./page2"; // Importing Page2 component
+import Page3 from "./page3"; // Importing Page3 component
+import { MdPerson } from "react-icons/md"; // Import the human icon
 
-export default function Home() {
+export default function HomePage() {
+  const [activePage, setActivePage] = useState("page2");
+
+  const renderContent = () => {
+    switch (activePage) {
+      case "page1":
+        return <Page1 />; // Page1 content will be displayed (Dashboard)
+      case "page2":
+        return <Page2 />; // Page2 content will be displayed (Skill Test)
+      case "page3":
+        return <Page3 />; // Page3 content will be displayed (Internship)
+      default:
+        return <HomeContent />; // Default Home content
+    }
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div>
+        <div className="flex justify-between py-6 px-16  ">
+          <div className=" border-2 border-red-600">
+            <Image src="/assets/logo.png" width={150} height={50} />
+          </div>
+          <div className="flex items-center space-x-2 border-solid border-gray-200 rounded-lg p-2 shadow-sm bg-white">
+      {/* Icon */}
+      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center ">
+        <MdPerson className="text-gray-600 text-2xl" /> {/* Icon with size and color */}
+      </div>
+      
+      {/* Name */}
+      <div className="text-black font-semibold">
+        Rahil Siddique {/* Replace with dynamic name if needed */}
+      </div>
+    </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="flex h-screen overflow-hidden border-solid   border-t-1 border-r-0 border-b-0 border-l-0  border-gray-100   ">
+          {/* Left Navbar */}
+          <nav className="w-64 bg-white p-6 shadow-md border border-black">
+            <ul className="list-none p-0 space-y-4">
+              <li>
+                <button
+                  onClick={() => setActivePage("page1")}
+                  className={`flex items-center gap-3 w-full py-3 px-4  border-none transition-all duration-300 ${
+                    activePage === "page1"
+                      ? "bg-blue-100 text-blue-600"
+                      : "text-gray-600 bg-white"
+                  }`}
+                >
+                  <FaChartBar
+                    size={20}
+                    className={
+                      activePage === "page1" ? "text-blue-600" : "text-gray-600"
+                    }
+                  />
+                  <span className="text-lg font-medium">Dashboard</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setActivePage("page2")}
+                  className={`flex items-center gap-3 w-full py-3 px-4 border-none transition-all duration-300 ${
+                    activePage === "page2"
+                      ? "bg-blue-100 text-blue-600"
+                      : "text-gray-600 bg-white"
+                  }`}
+                >
+                  <FaMedal
+                    size={20}
+                    className={
+                      activePage === "page2" ? "text-blue-600" : "text-gray-600"
+                    }
+                  />
+                  <span className="text-lg font-medium">Skill Test</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setActivePage("page3")}
+                  className={`flex items-center gap-3 w-full py-3 px-4 border-none transition-all duration-300 ${
+                    activePage === "page3"
+                      ? "bg-blue-100 text-blue-600"
+                      : "text-gray-600   bg-white"
+                  }`}
+                >
+                  <FaFileAlt
+                    size={20}
+                    className={
+                      activePage === "page3" ? "text-blue-600" : "text-gray-600"
+                    }
+                  />
+                  <span className="text-lg font-medium">Internship</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Right Main Content */}
+          <main className="flex-1 p-6 overflow-y-auto">
+            {renderContent()} {/* Render content based on state */}
+          </main>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// Components for the Home page content
+function HomeContent() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold">Welcome to the Homepage</h1>
+      <p className="mt-4">
+        Select a page from the left-side menu to see different content.
+      </p>
     </div>
   );
 }
